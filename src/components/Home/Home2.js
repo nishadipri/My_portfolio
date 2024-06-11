@@ -19,7 +19,7 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-            I used to heal with ancient remedies,
+            I used to heal with ancient remedies,I'm licensed Ayurvedic Medicine practionner.
               <br />
               <br />now I'm mastering 
               <i>
