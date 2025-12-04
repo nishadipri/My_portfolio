@@ -1,0 +1,47 @@
+/* Custom Cursor */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, #c770f0, #e94ad1);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+  transition: width 0.3s ease, height 0.3s ease;
+  box-shadow: 0 0 20px rgba(199, 112, 240, 0.8);
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(199, 112, 240, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+.cursor-outline.cursor-hover {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(233, 74, 209, 0.8);
+  box-shadow: 0 0 30px rgba(233, 74, 209, 0.4);
+}
+
+/* Hide default cursor on desktop */
+@media (min-width: 768px) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Show default cursor on mobile */
+@media (max-width: 767px) {
+  .cursor-dot,
+  .cursor-outline {
+    display: none;
+  }
+}
