@@ -12,6 +12,7 @@ function AboutCard() {
             from <span className="purple"> Copenhagen, Denmark.</span>
             <br />
             I have finished the full stack development bootcamp at Hack Your Future.
+            
             <br />
             I have completed Bachelor degree in Ayurveda Medicine and Surgery
             <br />
