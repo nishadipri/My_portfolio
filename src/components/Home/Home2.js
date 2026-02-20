@@ -66,6 +66,7 @@ function Home2() {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
+                  aria-label="GitHub"
                 >
                   <AiFillGithub />
                 </a>
@@ -73,10 +74,11 @@ function Home2() {
               
               <li className="social-icons">
                 <a
-                  href="www.linkedin.com/in/nishadi-samarathunge"
+                  href="https://www.linkedin.com/in/nishadi-samarathunge"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
+                  aria-label="LinkedIn"
                 >
                   <FaLinkedinIn />
                 </a>
@@ -87,6 +89,7 @@ function Home2() {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
+                  aria-label="Instagram"
                 >
                   <AiFillInstagram />
                 </a>
