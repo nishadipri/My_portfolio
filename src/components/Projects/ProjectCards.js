@@ -13,6 +13,18 @@ function ProjectCards(props) {
         <Card.Text style={{ textAlign: "justify" }}>
           {props.description}
         </Card.Text>
+        {props.techStack && props.techStack.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-3">
+            {props.techStack.map((tech, index) => (
+              <span
+                key={index}
+                className="inline-block px-2 py-1 text-xs rounded-full border border-purple-accent/40 text-purple-accent"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
         {props.ghLink && props.ghLink !== "#" && (
           <Button variant="primary" href={props.ghLink} target="_blank" rel="noopener noreferrer">
             <BsGithub /> &nbsp;

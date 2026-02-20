@@ -31,10 +31,13 @@
   box-shadow: 0 0 30px rgba(233, 74, 209, 0.4);
 }
 
-/* Hide default cursor on desktop */
+/* Hide default cursor on desktop (only when using mouse) */
 @media (min-width: 768px) {
-  * {
+  *:not(.keyboard-user *) {
     cursor: none !important;
+  }
+  .keyboard-user * {
+    cursor: auto !important;
   }
 }
 

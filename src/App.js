@@ -19,6 +19,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const About = lazy(() => import("./components/About/About"));
 const Projects = lazy(() => import("./components/Projects/Projects"));
 const Resume = lazy(() => import("./components/Resume/ResumeNew"));
+const Contact = lazy(() => import("./components/Contact/Contact"));
 
 function App() {
   const [load, setLoad] = useState(true);
@@ -45,6 +46,7 @@ function App() {
               <Route path="/project" element={<Projects />} />
               <Route path="/about" element={<About />} />
               <Route path="/resume" element={<Resume />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<Navigate to="/"/>} />
             </Routes>
           </Suspense>

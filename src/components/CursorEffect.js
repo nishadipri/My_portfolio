@@ -8,7 +8,8 @@ function CursorEffect() {
   useEffect(() => {
     const handleMouseMove = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
-      
+      document.body.classList.remove("keyboard-user");
+
       const target = e.target;
       setIsPointer(
         window.getComputedStyle(target).cursor === "pointer" ||
@@ -17,10 +18,18 @@ function CursorEffect() {
       );
     };
 
+    const handleKeyDown = (e) => {
+      if (e.key === "Tab") {
+        document.body.classList.add("keyboard-user");
+      }
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
