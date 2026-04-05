@@ -23,6 +23,7 @@ const Contact = lazy(() => import("./components/Contact/Contact"));
 
 function App() {
   const [load, setLoad] = useState(true);
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -32,13 +33,35 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("portfolio-theme");
+
+    if (storedTheme === "light" || storedTheme === "dark") {
+      setTheme(storedTheme);
+      return;
+    }
+
+    const prefersLightTheme = window.matchMedia("(prefers-color-scheme: light)").matches;
+    setTheme(prefersLightTheme ? "light" : "dark");
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.style.colorScheme = theme;
+    localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
+
+  function toggleTheme() {
+    setTheme((previousTheme) => (previousTheme === "dark" ? "light" : "dark"));
+  }
+
   return (
     <ErrorBoundary>
-      <Router>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Preloader load={load} />
         <CursorEffect />
         <div className="App" id={load ? "no-scroll" : "scroll"}>
-          <Navbar />
+          <Navbar theme={theme} toggleTheme={toggleTheme} />
           <ScrollToTop />
           <Suspense fallback={<Preloader load={true} />}>
             <Routes>

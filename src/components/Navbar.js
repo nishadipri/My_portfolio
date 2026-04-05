@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
+import { BsSunFill, BsMoonStarsFill } from "react-icons/bs";
 
 import {
   AiFillStar,
@@ -17,8 +18,7 @@ import {
 
 import { CgFileDocument } from "react-icons/cg";
 
-function NavBar() {
-  const [expand, updateExpanded] = useState(false);
+function NavBar({ theme, toggleTheme }) {
   const [navColour, updateNavbar] = useState(false);
 
   useEffect(() => {
@@ -35,86 +35,66 @@ function NavBar() {
   }, []);
 
   return (
-    <Navbar
-      expanded={expand}
-      fixed="top"
-      expand="md"
-      className={navColour ? "sticky" : "navbar"}
-    >
+    <Navbar fixed="top" expand="md" className={navColour ? "sticky" : "navbar"}>
       <Container>
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
-              </Nav.Link>
-            </Nav.Item>
+        <Nav className="ms-auto" defaultActiveKey="#home">
+          <Nav.Item>
+            <Nav.Link as={Link} to="/">
+              <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
+            </Nav.Link>
+          </Nav.Item>
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
-              </Nav.Link>
-            </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={Link} to="/about">
+              <AiOutlineUser style={{ marginBottom: "2px" }} /> About
+            </Nav.Link>
+          </Nav.Item>
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
-              </Nav.Link>
-            </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={Link} to="/project">
+              <AiOutlineFundProjectionScreen style={{ marginBottom: "2px" }} />{" "}
+              Projects
+            </Nav.Link>
+          </Nav.Item>
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-              >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
-              </Nav.Link>
-            </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={Link} to="/resume">
+              <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
+            </Nav.Link>
+          </Nav.Item>
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/contact"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineMail style={{ marginBottom: "2px" }} /> Contact
-              </Nav.Link>
-            </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={Link} to="/contact">
+              <AiOutlineMail style={{ marginBottom: "2px" }} /> Contact
+            </Nav.Link>
+          </Nav.Item>
 
-            <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/nishadipri"
-                target="_blank"
-                className="fork-btn-inner"
-              >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
-              </Button>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
+          <Nav.Item className="fork-btn">
+            <Button
+              href="https://github.com/nishadipri"
+              target="_blank"
+              className="fork-btn-inner"
+            >
+              <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
+              <AiFillStar style={{ fontSize: "1.1em" }} />
+            </Button>
+          </Nav.Item>
+
+          <Nav.Item className="theme-toggle-nav-item">
+            <Button
+              type="button"
+              className="theme-toggle-btn"
+              onClick={toggleTheme}
+              aria-label={
+                theme === "dark"
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
+              }
+            >
+              {theme === "dark" ? <BsSunFill /> : <BsMoonStarsFill />}
+            </Button>
+          </Nav.Item>
+        </Nav>
       </Container>
     </Navbar>
   );

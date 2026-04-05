@@ -35,7 +35,7 @@ function Contact() {
         <h1 className="project-heading text-center">
           Get In <strong className="purple">Touch</strong>
         </h1>
-        <p className="text-center text-white mb-12">
+        <p className="text-center mb-12 contact-subtext">
           Feel free to reach out — I'd love to hear from you!
         </p>
 
@@ -43,7 +43,7 @@ function Contact() {
           <Col md={6}>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
-                <label htmlFor="name" className="block text-white mb-2 text-lg">
+                <label htmlFor="name" className="block mb-2 text-lg contact-label">
                   Name
                 </label>
                 <input
@@ -53,13 +53,13 @@ function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-purple-accent/30 text-white placeholder-gray-400 focus:outline-none focus:border-purple-accent transition-colors"
+                  className="w-full px-4 py-3 rounded-lg contact-input transition-colors"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-white mb-2 text-lg">
+                <label htmlFor="email" className="block mb-2 text-lg contact-label">
                   Email
                 </label>
                 <input
@@ -69,13 +69,13 @@ function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-purple-accent/30 text-white placeholder-gray-400 focus:outline-none focus:border-purple-accent transition-colors"
+                  className="w-full px-4 py-3 rounded-lg contact-input transition-colors"
                   placeholder="nish.shanika@gmail.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-white mb-2 text-lg">
+                <label htmlFor="message" className="block mb-2 text-lg contact-label">
                   Message
                 </label>
                 <textarea
@@ -85,17 +85,14 @@ function Contact() {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-purple-accent/30 text-white placeholder-gray-400 focus:outline-none focus:border-purple-accent transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-lg contact-input transition-colors resize-none"
                   placeholder="Your message..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="mt-2 px-8 py-3 rounded-lg font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
-                style={{
-                  background: "linear-gradient(135deg, #623686, #8a49a8)",
-                }}
+                className="mt-2 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:-translate-y-0.5 contact-submit-btn"
               >
                 {submitted ? "Opening Email Client..." : "Send Message"}
               </button>
@@ -104,13 +101,13 @@ function Contact() {
 
           <Col md={4} className="mt-12 md:mt-0">
             <div className="flex flex-col items-center gap-6 pt-4">
-              <h2 className="text-white text-2xl font-semibold mb-4">
+              <h2 className="text-2xl font-semibold mb-4 contact-side-title">
                 Connect With Me
               </h2>
 
               <a
                 href="mailto:nish.shanika@gmail.com"
-                className="flex items-center gap-3 text-white hover:text-purple-accent transition-colors text-lg no-underline"
+                className="flex items-center gap-3 transition-colors text-lg no-underline contact-side-link"
                 aria-label="Email"
               >
                 <AiFillMail className="text-2xl" />
