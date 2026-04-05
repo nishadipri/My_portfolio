@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
+import { BsSunFill, BsMoonStarsFill } from "react-icons/bs";
 
 import {
   AiFillStar,
@@ -17,7 +18,7 @@ import {
 
 import { CgFileDocument } from "react-icons/cg";
 
-function NavBar() {
+function NavBar({ theme, toggleTheme }) {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
 
@@ -52,6 +53,22 @@ function NavBar() {
           <span></span>
           <span></span>
         </Navbar.Toggle>
+
+        <div className="theme-toggle-standalone">
+          <Button
+            type="button"
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label={
+              theme === "dark"
+                ? "Switch to light mode"
+                : "Switch to dark mode"
+            }
+          >
+            {theme === "dark" ? <BsSunFill /> : <BsMoonStarsFill />}
+          </Button>
+        </div>
+
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>

@@ -17,24 +17,12 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ textAlign: "center", padding: "4rem 2rem", color: "white" }}>
+        <div className="error-boundary-wrap">
           <h1>Something went wrong.</h1>
-          <p style={{ marginTop: "1rem", color: "#c770f0" }}>
+          <p className="error-boundary-message">
             Please refresh the page or try again later.
           </p>
-          <button
-            onClick={() => window.location.reload()}
-            style={{
-              marginTop: "1.5rem",
-              padding: "0.6rem 1.5rem",
-              background: "linear-gradient(135deg, #623686, #8a49a8)",
-              color: "white",
-              border: "none",
-              borderRadius: "8px",
-              cursor: "pointer",
-              fontSize: "1rem",
-            }}
-          >
+          <button onClick={() => window.location.reload()} className="error-boundary-btn">
             Refresh Page
           </button>
         </div>

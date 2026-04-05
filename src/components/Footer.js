@@ -23,7 +23,7 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://github.com/nishadipri"
-                style={{ color: "white" }}
+                className="footer-social-link"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -35,7 +35,7 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://www.linkedin.com/in/nishadi-samarathunge"
-                style={{ color: "white" }}
+                className="footer-social-link"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -46,7 +46,7 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://www.instagram.com/nishmnp/"
-                style={{ color: "white" }}
+                className="footer-social-link"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
