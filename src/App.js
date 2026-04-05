@@ -57,7 +57,7 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <Router>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Preloader load={load} />
         <CursorEffect />
         <div className="App" id={load ? "no-scroll" : "scroll"}>

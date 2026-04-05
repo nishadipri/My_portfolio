@@ -241,50 +241,6 @@ button:focus {
   backdrop-filter: blur(10px) !important;
 }
 
-.navbar-toggler {
-  position: relative !important;
-  background-color: transparent !important;
-  border: 1px solid var(--theme-border-soft) !important;
-  width: 46px !important;
-  height: 38px !important;
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-}
-
-.navbar-toggler span {
-  display: block !important;
-  background-color: var(--imp-text-color) !important;
-  height: 4px !important;
-  width: 27px !important;
-  margin-top: 5px !important;
-  margin-bottom: 5px !important;
-  transform: rotate(0deg) !important;
-  left: 0 !important;
-  opacity: 1 !important;
-}
-
-.navbar-toggler:focus,
-.navbar-toggler:active {
-  outline: 0 !important;
-  box-shadow: 0 0 0 2px var(--theme-border-soft);
-}
-
-.navbar-toggler span:nth-child(1),
-.navbar-toggler span:nth-child(3) {
-  transition: transform 0.35s ease-in-out !important;
-  transition: transform 0.35s ease-in-out !important;
-}
-
-.navbar.navbar-expand-md .navbar-toggler {
-  display: inline-flex !important;
-}
-
-@media (min-width: 768px) {
-  .navbar.navbar-expand-md .navbar-toggler {
-    display: inline-flex !important;
-  }
-}
 
 .navbar-toggler:not(.collapsed) span:nth-child(1) {
   position: absolute !important;
