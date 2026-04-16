@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import emailjs from "@emailjs/browser";
 import Particle from "../Particle";
 import { AiFillGithub, AiFillInstagram, AiFillMail } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+
+const STATUS = {
+  IDLE: "idle",
+  SENDING: "sending",
+  SUCCESS: "success",
+  ERROR: "error",
+};
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -10,23 +18,42 @@ function Contact() {
     email: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState(STATUS.IDLE);
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // Opens the user's email client with pre-filled fields
-    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    window.location.href = `mailto:nish.shanika@gmail.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    setStatus(STATUS.SENDING);
+
+    try {
+      await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      );
+      setStatus(STATUS.SUCCESS);
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => setStatus(STATUS.IDLE), 5000);
+    } catch {
+      setStatus(STATUS.ERROR);
+      setTimeout(() => setStatus(STATUS.IDLE), 5000);
+    }
   }
+
+  const buttonLabel = {
+    [STATUS.IDLE]: "Send Message",
+    [STATUS.SENDING]: "Sending...",
+    [STATUS.SUCCESS]: "Message Sent!",
+    [STATUS.ERROR]: "Failed — Try Again",
+  }[status];
 
   return (
     <Container fluid className="about-section">
@@ -53,6 +80,7 @@ function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  disabled={status === STATUS.SENDING}
                   className="w-full px-4 py-3 rounded-lg contact-input transition-colors"
                   placeholder="Your name"
                 />
@@ -69,8 +97,9 @@ function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  disabled={status === STATUS.SENDING}
                   className="w-full px-4 py-3 rounded-lg contact-input transition-colors"
-                  placeholder="nish.shanika@gmail.com"
+                  placeholder="your@email.com"
                 />
               </div>
 
@@ -85,16 +114,29 @@ function Contact() {
                   onChange={handleChange}
                   required
                   rows="5"
+                  disabled={status === STATUS.SENDING}
                   className="w-full px-4 py-3 rounded-lg contact-input transition-colors resize-none"
                   placeholder="Your message..."
                 />
               </div>
 
+              {status === STATUS.SUCCESS && (
+                <p className="text-center contact-success-msg">
+                  Thanks! I'll get back to you soon.
+                </p>
+              )}
+              {status === STATUS.ERROR && (
+                <p className="text-center contact-error-msg">
+                  Something went wrong. Please try again or email me directly.
+                </p>
+              )}
+
               <button
                 type="submit"
+                disabled={status === STATUS.SENDING}
                 className="mt-2 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:-translate-y-0.5 contact-submit-btn"
               >
-                {submitted ? "Opening Email Client..." : "Send Message"}
+                {buttonLabel}
               </button>
             </form>
           </Col>
