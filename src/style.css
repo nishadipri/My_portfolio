@@ -1339,6 +1339,33 @@ button:focus {
   box-shadow: 0 0 0 0.2rem var(--theme-contact-focus-shadow) !important;
 }
 
+.contact-input.contact-input-error {
+  border-color: #f87171 !important;
+}
+
+.contact-input.contact-input-error:focus {
+  border-color: #f87171 !important;
+  box-shadow: 0 0 0 0.2rem rgba(248, 113, 113, 0.25) !important;
+}
+
+.contact-field-error {
+  display: block !important;
+  color: #f87171 !important;
+  font-size: 0.85rem !important;
+  margin-top: 0.35rem !important;
+  margin-bottom: 0 !important;
+}
+
+.contact-success-msg {
+  color: #4ade80 !important;
+  font-size: 0.95rem !important;
+}
+
+.contact-error-msg {
+  color: #f87171 !important;
+  font-size: 0.95rem !important;
+}
+
 .contact-submit-btn {
   background: var(--theme-button-gradient) !important;
   color: #ffffff !important;
