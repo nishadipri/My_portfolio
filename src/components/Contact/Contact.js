@@ -13,6 +13,29 @@ const STATUS = {
   ERROR: "error",
 };
 
+const errorStyle = {
+  display: "block",
+  color: "#f87171",
+  fontSize: "0.85rem",
+  marginTop: "0.35rem",
+};
+
+const inputStyle = {
+  width: "100%",
+  padding: "0.75rem 1rem",
+  borderRadius: "0.5rem",
+  background: "rgba(255,255,255,0.05)",
+  border: "1px solid rgba(200,137,230,0.3)",
+  color: "#ffffff",
+  fontSize: "1rem",
+  outline: "none",
+};
+
+const inputErrorStyle = {
+  ...inputStyle,
+  border: "1px solid #f87171",
+};
+
 function Contact() {
   const [status, setStatus] = useState(STATUS.IDLE);
 
@@ -20,10 +43,8 @@ function Contact() {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitted },
+    formState: { errors },
   } = useForm();
-
-  console.log("RHF errors:", errors, "isSubmitted:", isSubmitted);
 
   async function onSubmit(data) {
     setStatus(STATUS.SENDING);
@@ -47,13 +68,6 @@ function Contact() {
       setTimeout(() => setStatus(STATUS.IDLE), 5000);
     }
   }
-
-  const buttonLabel = {
-    [STATUS.IDLE]: "Send Message",
-    [STATUS.SENDING]: "Sending...",
-    [STATUS.SUCCESS]: "Message Sent!",
-    [STATUS.ERROR]: "Failed — Try Again",
-  }[status];
 
   const isSending = status === STATUS.SENDING;
 
@@ -82,15 +96,14 @@ function Contact() {
                   type="text"
                   disabled={isSending}
                   placeholder="Your name"
-                  style={{ width: "100%" }}
-                  className={`contact-input${errors.name ? " contact-input-error" : ""}`}
+                  style={errors.name ? inputErrorStyle : inputStyle}
                   {...register("name", {
                     required: "Name is required",
                     minLength: { value: 2, message: "Name must be at least 2 characters" },
                   })}
                 />
                 {errors.name && (
-                  <span className="contact-field-error">{errors.name.message}</span>
+                  <span style={errorStyle}>{errors.name.message}</span>
                 )}
               </div>
 
@@ -104,8 +117,7 @@ function Contact() {
                   type="email"
                   disabled={isSending}
                   placeholder="your@email.com"
-                  style={{ width: "100%" }}
-                  className={`contact-input${errors.email ? " contact-input-error" : ""}`}
+                  style={errors.email ? inputErrorStyle : inputStyle}
                   {...register("email", {
                     required: "Email is required",
                     pattern: {
@@ -115,7 +127,7 @@ function Contact() {
                   })}
                 />
                 {errors.email && (
-                  <span className="contact-field-error">{errors.email.message}</span>
+                  <span style={errorStyle}>{errors.email.message}</span>
                 )}
               </div>
 
@@ -129,25 +141,24 @@ function Contact() {
                   rows="5"
                   disabled={isSending}
                   placeholder="Your message..."
-                  style={{ width: "100%", resize: "none" }}
-                  className={`contact-input${errors.message ? " contact-input-error" : ""}`}
+                  style={{ ...(errors.message ? inputErrorStyle : inputStyle), resize: "none" }}
                   {...register("message", {
                     required: "Message is required",
                     minLength: { value: 10, message: "Message must be at least 10 characters" },
                   })}
                 />
                 {errors.message && (
-                  <span className="contact-field-error">{errors.message.message}</span>
+                  <span style={errorStyle}>{errors.message.message}</span>
                 )}
               </div>
 
               {status === STATUS.SUCCESS && (
-                <p className="contact-success-msg" style={{ textAlign: "center" }}>
+                <p style={{ color: "#4ade80", textAlign: "center", marginBottom: "1rem" }}>
                   Thanks! I'll get back to you soon.
                 </p>
               )}
               {status === STATUS.ERROR && (
-                <p className="contact-error-msg" style={{ textAlign: "center" }}>
+                <p style={{ color: "#f87171", textAlign: "center", marginBottom: "1rem" }}>
                   Something went wrong. Please try again or email me directly.
                 </p>
               )}
@@ -156,54 +167,37 @@ function Contact() {
                 type="submit"
                 disabled={isSending}
                 className="contact-submit-btn"
-                style={{ width: "100%", marginTop: "0.5rem", padding: "0.75rem 2rem", borderRadius: "0.5rem", fontWeight: 600 }}
+                style={{ width: "100%", marginTop: "0.5rem", padding: "0.75rem 2rem", borderRadius: "0.5rem", fontWeight: 600, cursor: isSending ? "not-allowed" : "pointer" }}
               >
-                {buttonLabel}
+                {isSending ? "Sending..." : status === STATUS.SUCCESS ? "Message Sent!" : status === STATUS.ERROR ? "Failed — Try Again" : "Send Message"}
               </button>
             </form>
           </Col>
 
           <Col md={4} className="mt-12 md:mt-0">
-            <div className="flex flex-col items-center gap-6 pt-4">
-              <h2 className="text-2xl font-semibold mb-4 contact-side-title">
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem", paddingTop: "1rem" }}>
+              <h2 className="contact-side-title" style={{ fontSize: "1.5rem", fontWeight: 600, marginBottom: "1rem" }}>
                 Connect With Me
               </h2>
 
               <a
                 href="mailto:nish.shanika@gmail.com"
-                className="flex items-center gap-3 transition-colors text-lg no-underline contact-side-link"
+                className="contact-side-link"
+                style={{ display: "flex", alignItems: "center", gap: "0.75rem", fontSize: "1.1rem", textDecoration: "none" }}
                 aria-label="Email"
               >
-                <AiFillMail className="text-2xl" />
+                <AiFillMail style={{ fontSize: "1.5rem" }} />
                 nish.shanika@gmail.com
               </a>
 
-              <div className="flex gap-4 mt-6">
-                <a
-                  href="https://github.com/nishadipri"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="icon-colour home-social-icons"
-                  aria-label="GitHub"
-                >
+              <div style={{ display: "flex", gap: "1rem", marginTop: "1.5rem" }}>
+                <a href="https://github.com/nishadipri" target="_blank" rel="noopener noreferrer" className="icon-colour home-social-icons" aria-label="GitHub">
                   <AiFillGithub />
                 </a>
-                <a
-                  href="https://www.linkedin.com/in/nishadi-samarathunge"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="icon-colour home-social-icons"
-                  aria-label="LinkedIn"
-                >
+                <a href="https://www.linkedin.com/in/nishadi-samarathunge" target="_blank" rel="noopener noreferrer" className="icon-colour home-social-icons" aria-label="LinkedIn">
                   <FaLinkedinIn />
                 </a>
-                <a
-                  href="https://www.instagram.com/nishmnp/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="icon-colour home-social-icons"
-                  aria-label="Instagram"
-                >
+                <a href="https://www.instagram.com/nishmnp/" target="_blank" rel="noopener noreferrer" className="icon-colour home-social-icons" aria-label="Instagram">
                   <AiFillInstagram />
                 </a>
               </div>
