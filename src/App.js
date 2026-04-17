@@ -12,7 +12,18 @@ import {
 } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
-import "./style.css";
+import "./styles/globals.css";
+import "./styles/preloader.css";
+import "./styles/navbar.css";
+import "./styles/home.css";
+import "./styles/about.css";
+import "./styles/projects.css";
+import "./styles/featured-projects.css";
+import "./styles/resume.css";
+import "./styles/contact.css";
+import "./styles/footer.css";
+import "./styles/theme.css";
+import "./styles/error-boundary.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
