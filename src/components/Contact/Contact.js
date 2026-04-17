@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import Particle from "../Particle";
 import { AiFillGithub, AiFillInstagram, AiFillMail } from "react-icons/ai";
@@ -13,36 +14,35 @@ const STATUS = {
 };
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
   const [status, setStatus] = useState(STATUS.IDLE);
 
-  function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitted },
+  } = useForm();
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  console.log("RHF errors:", errors, "isSubmitted:", isSubmitted);
+
+  async function onSubmit(data) {
     setStatus(STATUS.SENDING);
-
     try {
       await emailjs.send(
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
         },
         process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       );
       setStatus(STATUS.SUCCESS);
-      setFormData({ name: "", email: "", message: "" });
+      reset();
       setTimeout(() => setStatus(STATUS.IDLE), 5000);
-    } catch {
+    } catch (err) {
+      console.error("EmailJS error:", err);
       setStatus(STATUS.ERROR);
       setTimeout(() => setStatus(STATUS.IDLE), 5000);
     }
@@ -54,6 +54,8 @@ function Contact() {
     [STATUS.SUCCESS]: "Message Sent!",
     [STATUS.ERROR]: "Failed — Try Again",
   }[status];
+
+  const isSending = status === STATUS.SENDING;
 
   return (
     <Container fluid className="about-section">
@@ -68,73 +70,93 @@ function Contact() {
 
         <Row className="justify-content-center">
           <Col md={6}>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <div>
-                <label htmlFor="name" className="block mb-2 text-lg contact-label">
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+
+              {/* Name */}
+              <div style={{ marginBottom: "1.25rem" }}>
+                <label htmlFor="name" className="contact-label" style={{ display: "block", marginBottom: "0.5rem" }}>
                   Name
                 </label>
                 <input
-                  type="text"
                   id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  disabled={status === STATUS.SENDING}
-                  className="w-full px-4 py-3 rounded-lg contact-input transition-colors"
+                  type="text"
+                  disabled={isSending}
                   placeholder="Your name"
+                  style={{ width: "100%" }}
+                  className={`contact-input${errors.name ? " contact-input-error" : ""}`}
+                  {...register("name", {
+                    required: "Name is required",
+                    minLength: { value: 2, message: "Name must be at least 2 characters" },
+                  })}
                 />
+                {errors.name && (
+                  <span className="contact-field-error">{errors.name.message}</span>
+                )}
               </div>
 
-              <div>
-                <label htmlFor="email" className="block mb-2 text-lg contact-label">
+              {/* Email */}
+              <div style={{ marginBottom: "1.25rem" }}>
+                <label htmlFor="email" className="contact-label" style={{ display: "block", marginBottom: "0.5rem" }}>
                   Email
                 </label>
                 <input
-                  type="email"
                   id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  disabled={status === STATUS.SENDING}
-                  className="w-full px-4 py-3 rounded-lg contact-input transition-colors"
+                  type="email"
+                  disabled={isSending}
                   placeholder="your@email.com"
+                  style={{ width: "100%" }}
+                  className={`contact-input${errors.email ? " contact-input-error" : ""}`}
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Please enter a valid email address",
+                    },
+                  })}
                 />
+                {errors.email && (
+                  <span className="contact-field-error">{errors.email.message}</span>
+                )}
               </div>
 
-              <div>
-                <label htmlFor="message" className="block mb-2 text-lg contact-label">
+              {/* Message */}
+              <div style={{ marginBottom: "1.25rem" }}>
+                <label htmlFor="message" className="contact-label" style={{ display: "block", marginBottom: "0.5rem" }}>
                   Message
                 </label>
                 <textarea
                   id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
                   rows="5"
-                  disabled={status === STATUS.SENDING}
-                  className="w-full px-4 py-3 rounded-lg contact-input transition-colors resize-none"
+                  disabled={isSending}
                   placeholder="Your message..."
+                  style={{ width: "100%", resize: "none" }}
+                  className={`contact-input${errors.message ? " contact-input-error" : ""}`}
+                  {...register("message", {
+                    required: "Message is required",
+                    minLength: { value: 10, message: "Message must be at least 10 characters" },
+                  })}
                 />
+                {errors.message && (
+                  <span className="contact-field-error">{errors.message.message}</span>
+                )}
               </div>
 
               {status === STATUS.SUCCESS && (
-                <p className="text-center contact-success-msg">
+                <p className="contact-success-msg" style={{ textAlign: "center" }}>
                   Thanks! I'll get back to you soon.
                 </p>
               )}
               {status === STATUS.ERROR && (
-                <p className="text-center contact-error-msg">
+                <p className="contact-error-msg" style={{ textAlign: "center" }}>
                   Something went wrong. Please try again or email me directly.
                 </p>
               )}
 
               <button
                 type="submit"
-                disabled={status === STATUS.SENDING}
-                className="mt-2 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:-translate-y-0.5 contact-submit-btn"
+                disabled={isSending}
+                className="contact-submit-btn"
+                style={{ width: "100%", marginTop: "0.5rem", padding: "0.75rem 2rem", borderRadius: "0.5rem", fontWeight: 600 }}
               >
                 {buttonLabel}
               </button>
