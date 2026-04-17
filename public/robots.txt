@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://nishadi.dev/sitemap.xml
+Sitemap: https://nishadi.com/sitemap.xml

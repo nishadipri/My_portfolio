@@ -1,7 +1,7 @@
 import leaf from "../Assets/Projects/leaf.jpg";
 import emotion from "../Assets/Projects/emotion.jpg";
 import editor from "../Assets/Projects/codeEditor.jpg";
-import chatify from "../Assets/Projects/chatify.png";
+import chatify from "../Assets/Projects/chatify.jpg";
 import suicide from "../Assets/Projects/suicide.jpg";
 import bitsOfCode from "../Assets/Projects/blog.jpg";
 
