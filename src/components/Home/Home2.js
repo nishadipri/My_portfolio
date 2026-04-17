@@ -48,8 +48,8 @@ function Home2() {
             </p>
           </Col>
           <Col md={4} className="myAvtar">
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" loading="lazy" width="400" height="400" />
+            <Tilt aria-label="Profile photo of Nishadi Samarathunge">
+              <img src={myImg} className="img-fluid" alt="Nishadi Samarathunge — Software Developer & Ayurvedic Physician" loading="lazy" width="400" height="400" />
             </Tilt>
           </Col>
         </Row>
