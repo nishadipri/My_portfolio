@@ -1,0 +1,124 @@
+/* --------- */
+/* Theme System — CSS variable overrides for dynamic theming */
+/* --------- */
+
+/* Scrollbar (theme-aware) */
+::-webkit-scrollbar-track  { background: var(--theme-scroll-track); }
+::-webkit-scrollbar-thumb  { background: var(--theme-scroll-thumb); }
+::-webkit-scrollbar-thumb:hover { background: var(--theme-scroll-thumb-hover); }
+
+/* Navbar */
+.sticky {
+  background: var(--theme-nav-sticky-bg) !important;
+  box-shadow: var(--theme-nav-shadow) !important;
+  border-bottom: 1px solid var(--theme-border-soft) !important;
+}
+
+.navbar {
+  background: var(--theme-nav-bg) !important;
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    background-color: var(--theme-nav-mobile-bg) !important;
+  }
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: var(--theme-nav-link) !important;
+}
+
+/* Text colour — all themed sections */
+.navbar-brand,
+.navbar-nav .nav-link,
+.home-content,
+.home-about-description,
+.home-about-social,
+.project-heading,
+.project-card-view,
+.about-section,
+.resume-section,
+.blog-card-view,
+.quote-card-view,
+.featured-projects-heading,
+.project-slide-content,
+.section-subtext,
+.contact-subtext,
+.contact-label,
+.contact-side-title,
+.contact-side-link,
+.error-boundary-wrap {
+  color: var(--theme-text-primary) !important;
+}
+
+.navbar-nav .nav-item a:hover {
+  color: var(--imp-text-color) !important;
+}
+
+/* Cards */
+.project-card-view,
+.quote-card-view,
+.tech-icons {
+  background: var(--theme-card-bg) !important;
+  border-color: var(--theme-card-border) !important;
+  box-shadow: var(--theme-card-shadow) !important;
+}
+
+/* Social icons */
+.home-social-icons {
+  background: var(--theme-home-social-bg) !important;
+}
+
+.icon-colour {
+  color: var(--theme-icon-color) !important;
+}
+
+/* Featured projects */
+.featured-projects-section {
+  background: var(--theme-featured-bg);
+}
+
+.featured-projects-subtitle,
+.blockquote-footer,
+.error-boundary-message {
+  color: var(--theme-text-secondary) !important;
+}
+
+.quote-highlight {
+  color: var(--theme-quote-highlight) !important;
+}
+
+/* Footer */
+.footer {
+  background: var(--theme-footer-bg);
+  border-top: 1px solid var(--theme-border-soft);
+}
+
+.footer h3 {
+  color: var(--theme-footer-text) !important;
+}
+
+/* Light mode — image & slide adjustments */
+[data-theme="light"] .project-slide::before {
+  background: rgba(20, 28, 45, 0.12);
+}
+
+[data-theme="light"] .project-slide:hover::before {
+  background: rgba(20, 28, 45, 0.05);
+}
+
+[data-theme="light"] .home-section {
+  background-image: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(236, 243, 255, 0.85)
+    ),
+    url(../Assets/home-bg.jpg);
+  background-blend-mode: screen;
+  filter: brightness(1.05) contrast(0.95);
+}
+
+[data-theme="light"] .home-main-image {
+  box-shadow: 0 12px 36px rgba(111, 45, 189, 0.25);
+}

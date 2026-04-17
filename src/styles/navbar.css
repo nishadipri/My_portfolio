@@ -1,0 +1,156 @@
+/* --------- */
+/* Navbar */
+/* --------- */
+.sticky {
+  background: rgba(27, 26, 46, 0.85) !important;
+  transition: all 0.3s ease-out 0s !important;
+  box-shadow: 0px 10px 30px 0px rgba(138, 73, 168, 0.3) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(200, 137, 230, 0.1) !important;
+}
+
+.navbar {
+  position: fixed !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  padding: 0.3rem 2rem !important;
+  font-size: 1.2rem !important;
+  background: rgba(10, 5, 20, 0.4) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(1) {
+  position: absolute !important;
+  left: 12px !important;
+  top: 10px !important;
+  transform: rotate(135deg) !important;
+  opacity: 0.9 !important;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(2) {
+  height: 12px !important;
+  visibility: hidden !important;
+  background-color: transparent !important;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(3) {
+  position: absolute !important;
+  left: 12px !important;
+  top: 10px !important;
+  transform: rotate(-135deg) !important;
+  opacity: 0.9 !important;
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    padding: 1rem 2rem !important;
+    font-size: 1.4rem !important;
+    background-color: #181a27 !important;
+  }
+  .navbar-nav .nav-item a::after {
+    display: none !important;
+  }
+}
+
+.navbar-brand {
+  color: rgb(250, 250, 250) !important;
+}
+
+.logo {
+  height: 1.4em !important;
+  width: 2.5em !important;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+}
+
+.nav-link {
+  padding: 0.8rem 1rem !important;
+}
+
+@media (max-width: 767px) {
+  .nav-link {
+    padding: 0.7rem 1rem !important;
+  }
+}
+
+.navbar-nav .nav-item {
+  position: relative;
+  margin-left: 20px;
+}
+
+.navbar-nav .nav-item a {
+  font-weight: 400;
+  transition: all 0.3s ease-out 0s;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 0 transparent;
+}
+
+.navbar-nav .nav-item a:hover {
+  text-shadow: 0 0 20px rgba(199, 112, 240, 0.6);
+  transform: translateY(-2px);
+}
+
+.navbar-nav .nav-item a::after {
+  content: "";
+  position: relative;
+  display: block;
+  height: 5px;
+  width: 0;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #c95bf5, #a24dd3);
+  bottom: 1px;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s ease-out 0s;
+  box-shadow: 0 0 10px rgba(201, 91, 245, 0.5);
+}
+
+.navbar-nav .nav-item a:hover::after {
+  width: 100%;
+}
+
+.theme-toggle-nav-item {
+  margin-left: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle-btn {
+  background: var(--theme-toggle-bg) !important;
+  color: var(--theme-toggle-color) !important;
+  border: 1px solid var(--theme-toggle-border) !important;
+  border-radius: 999px !important;
+  min-width: 44px;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px var(--theme-contact-focus-shadow);
+}
+
+.theme-toggle-btn:focus-visible {
+  outline: 2px solid var(--imp-text-color);
+  outline-offset: 2px;
+}
+
+.theme-toggle-standalone {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  padding-left: 0.75rem;
+}
+
+@media (max-width: 767px) {
+  .theme-toggle-standalone {
+    padding-left: 0.25rem;
+  }
+}
