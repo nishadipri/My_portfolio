@@ -103,7 +103,7 @@ function Home() {
       </Container>
 
       {/* ── Find me on ── */}
-      <Container fluid className="home-about-section">
+      <Container fluid className="home-about-section" id="connect">
         <Container>
           <Row>
             <Col md={12} className="home-about-social">
