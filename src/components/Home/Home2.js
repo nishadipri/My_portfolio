@@ -2,8 +2,6 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/ProfilePic.jpg";
 import Tilt from "react-parallax-tilt";
-import { AiFillGithub } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
 
 function Home2() {
   return (
@@ -48,39 +46,6 @@ function Home2() {
             <Tilt aria-label="Profile photo of Nishadi Samarathunge">
               <img src={myImg} className="img-fluid" alt="Nishadi Samarathunge — Software Developer & Ayurvedic Physician" loading="lazy" width="400" height="400" />
             </Tilt>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={12} className="home-about-social">
-            <h1>FIND ME ON</h1>
-            <p>
-              Feel free to <span className="purple">connect </span>with me
-            </p>
-            <ul className="home-about-social-links">
-              <li className="social-icons">
-                <a
-                  href="https://github.com/nishadipri"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                  aria-label="GitHub"
-                >
-                  <AiFillGithub />
-                </a>
-              </li>
-              
-              <li className="social-icons">
-                <a
-                  href="https://www.linkedin.com/in/nishadi-samarathunge"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                  aria-label="LinkedIn"
-                >
-                  <FaLinkedinIn />
-                </a>
-              </li>
-            </ul>
           </Col>
         </Row>
       </Container>
