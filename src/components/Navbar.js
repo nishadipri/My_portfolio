@@ -52,7 +52,11 @@ function NavBar({ theme, toggleTheme }) {
       <Container>
         <Nav className="ms-auto" defaultActiveKey="#home">
           <Nav.Item>
-            <Nav.Link as={Link} to="/">
+            <Nav.Link
+              as={Link}
+              to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
               <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
             </Nav.Link>
           </Nav.Item>
