@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
 import { BsSunFill, BsMoonStarsFill } from "react-icons/bs";
 
@@ -12,7 +12,6 @@ import {
   AiFillStar,
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
-  AiOutlineUser,
   AiOutlineMail,
 } from "react-icons/ai";
 
@@ -20,6 +19,8 @@ import { CgFileDocument } from "react-icons/cg";
 
 function NavBar({ theme, toggleTheme }) {
   const [navColour, updateNavbar] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     function scrollHandler() {
@@ -34,6 +35,18 @@ function NavBar({ theme, toggleTheme }) {
     return () => window.removeEventListener("scroll", scrollHandler);
   }, []);
 
+  function handleProjectsClick(e) {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  }
+
   return (
     <Navbar fixed="top" expand="md" className={navColour ? "sticky" : "navbar"}>
       <Container>
@@ -45,13 +58,7 @@ function NavBar({ theme, toggleTheme }) {
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link as={Link} to="/about">
-              <AiOutlineUser style={{ marginBottom: "2px" }} /> About
-            </Nav.Link>
-          </Nav.Item>
-
-          <Nav.Item>
-            <Nav.Link as={Link} to="/project">
+            <Nav.Link href="#projects" onClick={handleProjectsClick}>
               <AiOutlineFundProjectionScreen style={{ marginBottom: "2px" }} />{" "}
               Projects
             </Nav.Link>
