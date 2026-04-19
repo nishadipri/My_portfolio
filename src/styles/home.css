@@ -35,6 +35,23 @@
   transition: background-image 0.3s ease, filter 0.3s ease;
 }
 
+/* Gradient fade at the bottom of the hero — bridges into the intro section */
+.home-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, #0d0822);
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="light"] .home-section::after {
+  background: linear-gradient(to bottom, transparent, #f0eaff);
+}
+
 .home-content {
   padding: 9rem 0 2rem !important;
   color: whitesmoke;
@@ -135,6 +152,58 @@
 .home-mid-section.about-section,
 .home-mid-section.project-section {
   padding-top: 70px !important;
+}
+
+/* ─────────────────────────────────────────────────── */
+/* Gradient flow — each section blends into the next  */
+/* Bottom color of section N = top color of section N+1 */
+/* ─────────────────────────────────────────────────── */
+
+/* Hero fades out to #0d0822 at the bottom */
+.home-section {
+  background-image: var(--image-gradient), url(../Assets/home-bg.jpg) !important;
+}
+
+/* Intro: picks up #0d0822 from hero, fades to #150d30 */
+#about {
+  background: linear-gradient(to bottom, #0d0822, #150d30) !important;
+}
+
+/* Skills & Tools: #150d30 → #07040f */
+#skills {
+  background: linear-gradient(to bottom, #150d30, #07040f) !important;
+}
+
+/* Projects: #07040f → #100828 */
+#projects {
+  background: linear-gradient(to bottom, #07040f, #100828) !important;
+}
+
+/* GitHub calendar: #100828 → #0b061e */
+#github {
+  background: linear-gradient(to bottom, #100828, #0b061e) !important;
+}
+
+/* Find me on: #0b061e → #060210 */
+#connect {
+  background: linear-gradient(to bottom, #0b061e, #060210) !important;
+}
+
+/* ── Light theme overrides ── */
+[data-theme="light"] #about {
+  background: linear-gradient(to bottom, #f0eaff, #e8deff) !important;
+}
+[data-theme="light"] #skills {
+  background: linear-gradient(to bottom, #e8deff, #f2eeff) !important;
+}
+[data-theme="light"] #projects {
+  background: linear-gradient(to bottom, #f2eeff, #e4dbff) !important;
+}
+[data-theme="light"] #github {
+  background: linear-gradient(to bottom, #e4dbff, #ede5ff) !important;
+}
+[data-theme="light"] #connect {
+  background: linear-gradient(to bottom, #ede5ff, #f7f4ff) !important;
 }
 
 .home-about-description {
