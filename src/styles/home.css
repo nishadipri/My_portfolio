@@ -131,6 +131,12 @@
   padding-top: 70px !important;
 }
 
+/* Override large top padding when about/project sections appear mid-page */
+.home-mid-section.about-section,
+.home-mid-section.project-section {
+  padding-top: 70px !important;
+}
+
 .home-about-description {
   color: white !important;
   padding-top: 100px !important;
