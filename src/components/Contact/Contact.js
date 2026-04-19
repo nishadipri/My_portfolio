@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import Particle from "../Particle";
-import { AiFillGithub, AiFillInstagram, AiFillMail } from "react-icons/ai";
+import { AiFillGithub, AiFillMail } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
 const STATUS = {
@@ -196,9 +196,6 @@ function Contact() {
                 </a>
                 <a href="https://www.linkedin.com/in/nishadi-samarathunge" target="_blank" rel="noopener noreferrer" className="icon-colour home-social-icons" aria-label="LinkedIn">
                   <FaLinkedinIn />
-                </a>
-                <a href="https://www.instagram.com/nishmnp/" target="_blank" rel="noopener noreferrer" className="icon-colour home-social-icons" aria-label="Instagram">
-                  <AiFillInstagram />
                 </a>
               </div>
             </div>

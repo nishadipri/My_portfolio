@@ -34,7 +34,7 @@ function Home() {
             <Col md={5} style={{ paddingBottom: 20 }} className="home-image-container">
               <img
                 src={homeLogo}
-                alt="home pic"
+                alt="Nishadi Samarathunge — portfolio hero image"
                 className="img-fluid home-main-image"
                 style={{ maxHeight: "450px" }}
                 width="600"

@@ -2,10 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/ProfilePic.jpg";
 import Tilt from "react-parallax-tilt";
-import {
-  AiFillGithub,
-  AiFillInstagram,
-} from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
 function Home2() {
@@ -48,8 +45,8 @@ function Home2() {
             </p>
           </Col>
           <Col md={4} className="myAvtar">
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" loading="lazy" width="400" height="400" />
+            <Tilt aria-label="Profile photo of Nishadi Samarathunge">
+              <img src={myImg} className="img-fluid" alt="Nishadi Samarathunge — Software Developer & Ayurvedic Physician" loading="lazy" width="400" height="400" />
             </Tilt>
           </Col>
         </Row>
@@ -81,17 +78,6 @@ function Home2() {
                   aria-label="LinkedIn"
                 >
                   <FaLinkedinIn />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.instagram.com/nishmnp/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                  aria-label="Instagram"
-                >
-                  <AiFillInstagram />
                 </a>
               </li>
             </ul>
