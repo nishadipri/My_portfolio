@@ -8,6 +8,24 @@ import monthlyPlanner from "../Assets/Projects/monthlyPlanner.png";
 
 const projects = [
   {
+    imgPath: chatify,
+    title: "Canteen Assistant",
+    description:
+      "AI-powered chatbot for smart canteen FAQ. Ask about today's menu, allergens, and dietary options in plain language. Built with React 19 + Vite on the frontend and AWS Lambda + Amazon Bedrock (Claude Haiku) on the backend. Features smart routing, dietary toggles, and day filtering. Deployed to S3 + CloudFront via GitHub Actions.",
+    techStack: ["React", "Vite", "AWS Lambda", "Amazon Bedrock", "S3", "CloudFront"],
+    ghLink: "",
+    demoLink: "",
+  },
+  {
+    imgPath: monthlyPlanner,
+    title: "Monthly Planner",
+    description:
+      "A local-first monthly planner built with Next.js + TypeScript. Tasks are stored in the browser — no account, no backend, works offline. Features a Monday-first calendar grid with month navigation, inline task creation, editing, and quick-complete. Supports filtering by status, category, and priority. Offline-ready with a service worker and online/offline indicator.",
+    techStack: ["Next.js", "TypeScript", "CSS", "Vercel"],
+    ghLink: "https://github.com/nishadipri/Monthly-Planner",
+    demoLink: "https://monthly-planner-taupe.vercel.app/",
+  },
+  {
     imgPath: leaf,
     title: "Ayur Glow",
     description:
@@ -42,24 +60,6 @@ const projects = [
     techStack: ["React", "JavaScript", "CSS"],
     ghLink: "https://github.com/nishadipri/InteractiveRating",
     demoLink: "",
-  },
-  {
-    imgPath: chatify,
-    title: "Canteen Assistant",
-    description:
-      "AI-powered chatbot for smart canteen FAQ. Ask about today's menu, allergens, and dietary options in plain language. Built with React 19 + Vite on the frontend and AWS Lambda + Amazon Bedrock (Claude Haiku) on the backend. Features smart routing, dietary toggles, and day filtering. Deployed to S3 + CloudFront via GitHub Actions.",
-    techStack: ["React", "Vite", "AWS Lambda", "Amazon Bedrock", "S3", "CloudFront"],
-    ghLink: "",
-    demoLink: "",
-  },
-  {
-    imgPath: monthlyPlanner,
-    title: "Monthly Planner",
-    description:
-      "Local-first productivity app for organizing tasks by month. Features a focused calendar view, task creation with category and priority, status and category filtering, and offline-safe storage. Built with React.js and deployed on Vercel.",
-    techStack: ["React", "JavaScript", "CSS", "Vercel"],
-    ghLink: "https://github.com/nishadipri/Monthly-Planner",
-    demoLink: "https://monthly-planner-taupe.vercel.app/",
   },
   {
     imgPath: suicide,
