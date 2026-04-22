@@ -4,6 +4,7 @@ import editor from "../Assets/Projects/codeEditor.jpg";
 import chatify from "../Assets/Projects/chatify.jpg";
 import suicide from "../Assets/Projects/suicide.jpg";
 import bitsOfCode from "../Assets/Projects/blog.jpg";
+import monthlyPlanner from "../Assets/Projects/monthlyPlanner.png";
 
 const projects = [
   {
@@ -43,13 +44,22 @@ const projects = [
     demoLink: "",
   },
   {
-    imgPath: emotion,
+    imgPath: chatify,
+    title: "Canteen Assistant",
+    description:
+      "AI-powered chatbot for smart canteen FAQ. Ask about today's menu, allergens, and dietary options in plain language. Built with React 19 + Vite on the frontend and AWS Lambda + Amazon Bedrock (Claude Haiku) on the backend. Features smart routing, dietary toggles, and day filtering. Deployed to S3 + CloudFront via GitHub Actions.",
+    techStack: ["React", "Vite", "AWS Lambda", "Amazon Bedrock", "S3", "CloudFront"],
+    ghLink: "",
+    demoLink: "",
+  },
+  {
+    imgPath: monthlyPlanner,
     title: "Monthly Planner",
     description:
-      "Productivity tool for organizing monthly tasks and goals. Features include drag-and-drop task management, calendar view, and persistent storage. Built with React.js and modern CSS.",
-    techStack: ["React", "JavaScript", "CSS"],
+      "Local-first productivity app for organizing tasks by month. Features a focused calendar view, task creation with category and priority, status and category filtering, and offline-safe storage. Built with React.js and deployed on Vercel.",
+    techStack: ["React", "JavaScript", "CSS", "Vercel"],
     ghLink: "https://github.com/nishadipri/Monthly-Planner",
-    demoLink: "",
+    demoLink: "https://monthly-planner-taupe.vercel.app/",
   },
   {
     imgPath: suicide,
