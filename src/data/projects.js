@@ -4,8 +4,27 @@ import editor from "../Assets/Projects/codeEditor.jpg";
 import chatify from "../Assets/Projects/chatify.jpg";
 import suicide from "../Assets/Projects/suicide.jpg";
 import bitsOfCode from "../Assets/Projects/blog.jpg";
+import monthlyPlanner from "../Assets/Projects/monthlyPlanner.png";
 
 const projects = [
+  {
+    imgPath: chatify,
+    title: "Canteen Assistant",
+    description:
+      "AI-powered chatbot for smart canteen FAQ. Ask about today's menu, allergens, and dietary options in plain language. Built with React 19 + Vite on the frontend and AWS Lambda + Amazon Bedrock (Claude Haiku) on the backend. Features smart routing, dietary toggles, and day filtering. Deployed to S3 + CloudFront via GitHub Actions.",
+    techStack: ["React", "Vite", "AWS Lambda", "Amazon Bedrock", "S3", "CloudFront"],
+    ghLink: "",
+    demoLink: "",
+  },
+  {
+    imgPath: monthlyPlanner,
+    title: "Monthly Planner",
+    description:
+      "A local-first monthly planner built with Next.js + TypeScript. Tasks are stored in the browser — no account, no backend, works offline. Features a Monday-first calendar grid with month navigation, inline task creation, editing, and quick-complete. Supports filtering by status, category, and priority. Offline-ready with a service worker and online/offline indicator.",
+    techStack: ["Next.js", "TypeScript", "CSS", "Vercel"],
+    ghLink: "https://github.com/nishadipri/Monthly-Planner",
+    demoLink: "https://monthly-planner-taupe.vercel.app/",
+  },
   {
     imgPath: leaf,
     title: "Ayur Glow",
@@ -40,15 +59,6 @@ const projects = [
       "A responsive web application allowing users to submit and view ratings with real-time feedback. Built with React.js featuring component-based architecture and state management. Deployed on Netlify.",
     techStack: ["React", "JavaScript", "CSS"],
     ghLink: "https://github.com/nishadipri/InteractiveRating",
-    demoLink: "",
-  },
-  {
-    imgPath: emotion,
-    title: "Monthly Planner",
-    description:
-      "Productivity tool for organizing monthly tasks and goals. Features include drag-and-drop task management, calendar view, and persistent storage. Built with React.js and modern CSS.",
-    techStack: ["React", "JavaScript", "CSS"],
-    ghLink: "https://github.com/nishadipri/Monthly-Planner",
     demoLink: "",
   },
   {
