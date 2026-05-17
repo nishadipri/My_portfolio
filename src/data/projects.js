@@ -11,7 +11,7 @@ const projects = [
     imgPath: canteen,
     title: "AI Canteen Assistant",
     description:
-      "AI-powered canteen menu assistant built on AWS Bedrock (Claude Haiku). Users ask natural language questions about the weekly menu, allergens, and dietary options. Features hybrid routing — simple queries answered deterministically (zero AI cost), complex queries routed to Bedrock. Secured with Amazon Cognito JWT authentication, deployed via AWS SAM (Infrastructure as Code), and validated with a 28-case automated eval suite.",
+      "AI-powered canteen menu assistant built on AWS Bedrock (Claude Haiku). Users ask natural language questions about the weekly menu, allergens, and dietary options. Features hybrid routing ,simple queries answered deterministically (zero AI cost), complex queries routed to Bedrock. Secured with Amazon Cognito JWT authentication, deployed via AWS SAM (Infrastructure as Code), and validated with a 28-case automated eval suite.",
     techStack: ["React", "AWS Lambda (Python)", "Amazon Bedrock", "API Gateway", "Cognito", "S3", "CloudFront", "AWS SAM"],
     ghLink: "https://github.com/nishadipri/FAQ-Canteen",
     demoLink: "https://www.loom.com/share/d84d9f87183b46b28a004572089e2184",
