@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
-import pdf from "../../Assets/../Assets/NishCV.pdf";
+import pdf from "../../Assets/FullStackDeveloper_Nishadi_CV.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { MdOutlineOpenInNew } from "react-icons/md";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
