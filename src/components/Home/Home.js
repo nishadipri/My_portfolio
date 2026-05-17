@@ -6,7 +6,6 @@ import Home2 from "./Home2";
 import Type from "./Type";
 import Techstack from "../About/Techstack";
 import Toolstack from "../About/Toolstack";
-import Github from "../About/Github";
 import ProjectCard from "../Projects/ProjectCards";
 import projects from "../../data/projects";
 import { AiFillGithub } from "react-icons/ai";
