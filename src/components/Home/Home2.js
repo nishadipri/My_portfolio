@@ -13,33 +13,28 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-            I used to heal with ancient remedies, I'm a licensed Ayurvedic Medicine practitioner.
-              <br />
-              <br />Now I'm mastering 
+              I'm a <b className="purple">full-stack developer</b> based in{" "}
+              <b className="purple">Copenhagen</b>, focused on building responsive,
+              user-friendly web applications with{" "}
               <i>
-                <b className="purple"> HTML, CSS, JavaScript, TypeScript, React, Node.js, and AWS. </b>
+                <b className="purple">React, Next.js, TypeScript, JavaScript, Node.js, and AWS.</b>
               </i>
               <br />
               <br />
-              I'm the <b className="purple">Founder of Ayur Glow</b>, a startup combining 
-              <i>
-                <b className="purple"> holistic health with cutting-edge technology  </b> 
-              </i>
-              to create innovative wellness solutions.
+              I come from a <b className="purple">healthcare background</b>, which shaped
+              the way I think about people, communication, trust, and real user needs.
               <br />
               <br />
-              I'm also learning <b className="purple">AWS cloud services</b> to build scalable, 
-              modern applications with <b className="purple">Node.js</b> and
+              Today, I bring that <b className="purple">human-centered mindset</b> into
+              software development — building digital products that are clear, practical,
+              scalable, and meaningful for real users.
+              <br />
+              <br />
+              I'm especially interested in{" "}
               <i>
-                <b className="purple">
-                  {" "}
-                  Modern Javascript Library and Frameworks
-                </b>
-              </i>
-              &nbsp; like
-              <i>
-                <b className="purple"> React.js and Next.js</b>
-              </i>
+                <b className="purple">health tech, ed-tech, AI-powered tools,</b>
+              </i>{" "}
+              and modern web applications.
             </p>
           </Col>
           <Col md={4} className="myAvtar">

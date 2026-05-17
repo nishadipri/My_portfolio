@@ -95,13 +95,6 @@ function Home() {
         </Container>
       </Container>
 
-      {/* ── Days I Code ── */}
-      <Container fluid className="about-section home-mid-section" id="github">
-        <Container>
-          <Github />
-        </Container>
-      </Container>
-
       {/* ── Find me on ── */}
       <Container fluid className="home-about-section" id="connect">
         <Container>
