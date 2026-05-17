@@ -26,7 +26,7 @@ function Home2() {
               <br />
               <br />
               Today, I bring that <b className="purple">human-centered mindset</b> into
-              software development — building digital products that are clear, practical,
+              software development,building digital products that are clear, practical,
               scalable, and meaningful for real users.
               <br />
               <br />
