@@ -4,16 +4,17 @@ import chatify from "../Assets/Projects/chatify.jpg";
 import suicide from "../Assets/Projects/suicide.jpg";
 import bitsOfCode from "../Assets/Projects/blog.jpg";
 import monthlyPlanner from "../Assets/Projects/monthlyPlanner.png";
+import canteen from "../Assets/Projects/canteen.png";
 
 const projects = [
   {
-    imgPath: chatify,
-    title: "Canteen Assistant",
+    imgPath: canteen,
+    title: "AI Canteen Assistant",
     description:
-      "AI-powered chatbot for smart canteen FAQ. Ask about today's menu, allergens, and dietary options in plain language. Built with React 19 + Vite on the frontend and AWS Lambda + Amazon Bedrock (Claude Haiku) on the backend. Features smart routing, dietary toggles, and day filtering. Deployed to S3 + CloudFront via GitHub Actions.",
-    techStack: ["React", "Vite", "AWS Lambda", "Amazon Bedrock", "S3", "CloudFront"],
-    ghLink: "",
-    demoLink: "",
+      "AI-powered canteen menu assistant built on AWS Bedrock (Claude Haiku). Users ask natural language questions about the weekly menu, allergens, and dietary options. Features hybrid routing — simple queries answered deterministically (zero AI cost), complex queries routed to Bedrock. Secured with Amazon Cognito JWT authentication, deployed via AWS SAM (Infrastructure as Code), and validated with a 28-case automated eval suite.",
+    techStack: ["React", "AWS Lambda (Python)", "Amazon Bedrock", "API Gateway", "Cognito", "S3", "CloudFront", "AWS SAM"],
+    ghLink: "https://github.com/nishadipri/FAQ-Canteen",
+    demoLink: "https://www.loom.com/share/d84d9f87183b46b28a004572089e2184",
   },
   {
     imgPath: monthlyPlanner,
