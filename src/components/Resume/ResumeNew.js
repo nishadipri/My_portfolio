@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
-import pdf from "../../Assets/../Assets/NishCV.pdf";
+import pdf from "../../Assets/FullStackDeveloper_Nishadi_CV.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { MdOutlineOpenInNew } from "react-icons/md";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
@@ -61,7 +61,7 @@ function ResumeNew() {
       {/* Download button — top */}
       <Row className="justify-content-center" style={{ marginBottom: "1.5rem", gap: "12px" }}>
         <Col xs="auto">
-          <a href={pdf} download="NishCV.pdf" className="resume-download-btn">
+          <a href={pdf} download="FullStackDeveloper_Nishadi_CV.pdf" className="resume-download-btn">
             <AiOutlineDownload style={{ fontSize: "1.1rem" }} />
             Download CV
           </a>
@@ -133,7 +133,7 @@ function ResumeNew() {
       {/* Download button — bottom */}
       <Row className="justify-content-center" style={{ marginTop: "2rem", gap: "12px" }}>
         <Col xs="auto">
-          <a href={pdf} download="NishCV.pdf" className="resume-download-btn">
+          <a href={pdf} download="FullStackDeveloper_Nishadi_CV.pdf" className="resume-download-btn">
             <AiOutlineDownload style={{ fontSize: "1.1rem" }} />
             Download CV
           </a>
