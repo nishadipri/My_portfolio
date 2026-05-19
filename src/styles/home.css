@@ -24,6 +24,13 @@
   padding-top: 80px !important;
 }
 
+@media (max-width: 767px) {
+  .home-header {
+    padding-top: 30px !important;
+    text-align: center;
+  }
+}
+
 .home-section {
   position: relative;
   z-index: -1;
@@ -58,10 +65,37 @@
   text-align: left;
 }
 
+@media (max-width: 991px) {
+  .home-content {
+    padding: 6rem 1rem 2rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-content {
+    padding: 4rem 1rem 2rem !important;
+    text-align: center;
+  }
+}
+
 .heading {
   font-size: 2.4em !important;
   padding-left: 50px !important;
   animation: floatIn 1s ease-out;
+}
+
+@media (max-width: 991px) {
+  .heading {
+    font-size: 2em !important;
+    padding-left: 20px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .heading {
+    font-size: 1.8em !important;
+    padding-left: 0 !important;
+  }
 }
 
 @keyframes floatIn {
@@ -73,6 +107,20 @@
   font-size: 2.5em !important;
   padding-left: 45px !important;
   animation: floatIn 1.2s ease-out;
+}
+
+@media (max-width: 991px) {
+  .heading-name {
+    font-size: 2em !important;
+    padding-left: 20px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .heading-name {
+    font-size: 1.7em !important;
+    padding-left: 0 !important;
+  }
 }
 
 .main-name {
@@ -128,12 +176,44 @@
   animation: floatIn 1.5s ease-out;
 }
 
+.typewriter-container {
+  padding: 50px;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .typewriter-container {
+    padding: 20px 0;
+    text-align: center;
+  }
+}
+
+.intro-heading {
+  font-size: 2.6em;
+}
+
+@media (max-width: 991px) {
+  .intro-heading {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 767px) {
+  .intro-heading {
+    font-size: 1.6em;
+  }
+}
+
 .home-main-image {
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(199, 112, 240, 0.3);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   filter: brightness(1.05) contrast(1.1);
   position: relative;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .home-main-image:hover {
@@ -213,10 +293,32 @@
   text-align: center;
 }
 
+@media (max-width: 991px) {
+  .home-about-description {
+    padding-top: 50px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-about-description {
+    padding-top: 20px !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
 .home-about-body {
   padding-top: 50px;
   font-size: 1.2em !important;
   text-align: left;
+}
+
+@media (max-width: 767px) {
+  .home-about-body {
+    padding-top: 20px;
+    font-size: 1em !important;
+    text-align: left;
+  }
 }
 
 .home-about-social {
