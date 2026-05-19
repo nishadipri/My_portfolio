@@ -11,6 +11,13 @@
   animation: fadeIn 0.8s ease-out;
 }
 
+@media (max-width: 767px) {
+  .about-section {
+    padding-top: 80px !important;
+    padding-bottom: 20px !important;
+  }
+}
+
 .tech-icons {
   font-size: 4.5em !important;
   margin: 15px !important;
@@ -36,7 +43,9 @@
 
 @media (max-width: 767px) {
   .tech-icons {
-    margin: 10px !important;
+    font-size: 3em !important;
+    margin: 8px !important;
+    padding: 8px !important;
   }
 }
 
