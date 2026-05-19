@@ -9,7 +9,7 @@ function Home2() {
       <Container>
         <Row>
           <Col md={8} className="home-about-description">
-            <h1 style={{ fontSize: "2.6em" }}>
+            <h1 className="intro-heading">
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
@@ -39,7 +39,7 @@ function Home2() {
           </Col>
           <Col md={4} className="myAvtar">
             <Tilt aria-label="Profile photo of Nishadi Samarathunge">
-              <img src={myImg} className="img-fluid" alt="Nishadi Samarathunge — Software Developer & Ayurvedic Physician" loading="lazy" width="400" height="400" />
+              <img src={myImg} className="img-fluid" alt="Nishadi Samarathunge — Software Developer" loading="lazy" />
             </Tilt>
           </Col>
         </Row>
