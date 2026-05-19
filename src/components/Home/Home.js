@@ -37,10 +37,14 @@ function Home() {
               </div>
             </Col>
 
-            <Col md={5} style={{ paddingBottom: 20 }} className="home-image-container">
+            <Col
+              md={5}
+              style={{ paddingBottom: 20 }}
+              className="home-image-container"
+            >
               <img
                 src={homeLogo}
-                alt="Nishadi Samarathunge — portfolio hero image"
+                alt=""
                 className="img-fluid home-main-image"
               />
             </Col>
@@ -67,7 +71,11 @@ function Home() {
       </Container>
 
       {/* ── Projects ── */}
-      <Container fluid className="project-section home-mid-section" id="projects">
+      <Container
+        fluid
+        className="project-section home-mid-section"
+        id="projects"
+      >
         <Container>
           <h1 className="project-heading">
             My Recent <strong className="purple">Works</strong>
