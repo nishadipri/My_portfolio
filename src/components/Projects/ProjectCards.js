@@ -25,7 +25,7 @@ function ProjectCards(props) {
             ))}
           </div>
         )}
-        <div style={{ marginTop: "auto", paddingTop: "12px" }}>
+        <div style={{ marginTop: "auto", paddingTop: "12px", display: "flex", flexWrap: "wrap", gap: "10px" }}>
           {props.ghLink && props.ghLink !== "#" && (
             <Button variant="primary" href={props.ghLink} target="_blank" rel="noopener noreferrer">
               <BsGithub /> &nbsp;
@@ -33,13 +33,7 @@ function ProjectCards(props) {
             </Button>
           )}
           {!props.isBlog && props.demoLink && props.demoLink !== "#" && (
-            <Button
-              variant="primary"
-              href={props.demoLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ marginLeft: "10px" }}
-            >
+            <Button variant="primary" href={props.demoLink} target="_blank" rel="noopener noreferrer">
               <CgWebsite /> &nbsp;
               {"Demo"}
             </Button>
