@@ -9,6 +9,13 @@
   color: white !important;
 }
 
+@media (max-width: 767px) {
+  .resume-section {
+    padding-top: 70px !important;
+    padding-bottom: 30px !important;
+  }
+}
+
 /* ---- Stats strip ---- */
 .resume-stat-card {
   display: flex;
