@@ -174,7 +174,7 @@ function Contact() {
             </form>
           </Col>
 
-          <Col md={4} className="mt-12 md:mt-0">
+          <Col md={4} xs={12} style={{ marginTop: "2rem" }} className="contact-side-col">
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem", paddingTop: "1rem" }}>
               <h2 className="contact-side-title" style={{ fontSize: "1.5rem", fontWeight: 600, marginBottom: "1rem" }}>
                 Connect With Me
