@@ -17,7 +17,7 @@ function Projects() {
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           {projects.map((project, index) => (
-            <Col md={4} className="project-card" key={index}>
+            <Col xs={12} sm={6} md={4} className="project-card" key={index}>
               <ProjectCard
                 imgPath={project.imgPath}
                 isBlog={false}
