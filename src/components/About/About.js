@@ -18,20 +18,20 @@ function About() {
             style={{
               justifyContent: "center",
               paddingTop: "30px",
-              paddingBottom: "50px",
+              paddingBottom: "30px",
             }}
           >
-            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
+            <h1 className="intro-heading" style={{ paddingBottom: "20px" }}>
               Know Who <strong className="purple">I AM</strong>
             </h1>
             <Aboutcard />
           </Col>
           <Col
             md={5}
-            style={{ paddingTop: "120px", paddingBottom: "50px" }}
+            style={{ paddingTop: "30px", paddingBottom: "30px" }}
             className="about-img"
           >
-            <img src={laptopImg} alt="Developer working on a laptop" className="img-fluid" loading="lazy" width="500" height="500" />
+            <img src={laptopImg} alt="Developer working on a laptop" className="img-fluid" loading="lazy" />
           </Col>
         </Row>
         <h1 className="project-heading">
