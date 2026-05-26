@@ -4,7 +4,7 @@ import "../styles/particle.css";
 function Particle() {
   const stars = useMemo(
     () =>
-      Array.from({ length: 80 }, (_, i) => ({
+      Array.from({ length: 40 }, (_, i) => ({
         id: i,
         size: Math.random() * 2 + 1,         // 1–3 px
         x: Math.random() * 100,               // % across viewport
