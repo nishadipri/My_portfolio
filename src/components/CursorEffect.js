@@ -1,54 +1,56 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import "./CursorEffect.css";
 
 function CursorEffect() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isPointer, setIsPointer] = useState(false);
+  const dotRef = useRef(null);
+  const outlineRef = useRef(null);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      document.body.classList.remove("keyboard-user");
+    const dot = dotRef.current;
+    const outline = outlineRef.current;
+    if (!dot || !outline) return;
 
-      const target = e.target;
-      setIsPointer(
-        window.getComputedStyle(target).cursor === "pointer" ||
-        target.tagName === "A" ||
-        target.tagName === "BUTTON"
-      );
-    };
+    let rafId;
 
-    const handleKeyDown = (e) => {
-      if (e.key === "Tab") {
-        document.body.classList.add("keyboard-user");
-      }
-    };
+    function onMouseMove(e) {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const x = e.clientX;
+        const y = e.clientY;
+        dot.style.left = `${x}px`;
+        dot.style.top = `${y}px`;
+        outline.style.left = `${x}px`;
+        outline.style.top = `${y}px`;
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("keydown", handleKeyDown);
+        const target = e.target;
+        const isPointer =
+          window.getComputedStyle(target).cursor === "pointer" ||
+          target.tagName === "A" ||
+          target.tagName === "BUTTON";
+
+        outline.classList.toggle("cursor-hover", isPointer);
+        document.body.classList.remove("keyboard-user");
+      });
+    }
+
+    function onKeyDown(e) {
+      if (e.key === "Tab") document.body.classList.add("keyboard-user");
+    }
+
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    window.addEventListener("keydown", onKeyDown);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("keydown", handleKeyDown);
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("keydown", onKeyDown);
     };
   }, []);
 
   return (
     <>
-      <div
-        className="cursor-dot"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-        }}
-      />
-      <div
-        className={`cursor-outline ${isPointer ? "cursor-hover" : ""}`}
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-        }}
-      />
+      <div ref={dotRef} className="cursor-dot" />
+      <div ref={outlineRef} className="cursor-outline" />
     </>
   );
 }
