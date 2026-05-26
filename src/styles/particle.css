@@ -10,6 +10,7 @@
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  contain: strict;
 }
 
 .particle-star {
@@ -18,9 +19,10 @@
   border-radius: 50%;
   animation: twinkle ease-in-out infinite;
   opacity: var(--base-opacity, 0.3);
+  will-change: opacity;
 }
 
 @keyframes twinkle {
-  0%,  100% { opacity: var(--base-opacity, 0.3); transform: scale(1); }
-  50%        { opacity: 0.05;                     transform: scale(0.4); }
+  0%,  100% { opacity: var(--base-opacity, 0.3); }
+  50%        { opacity: 0.05; }
 }
